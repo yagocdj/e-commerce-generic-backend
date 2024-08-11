@@ -3,9 +3,11 @@ package br.edu.ifpb.ecommercegenericbackend.controller;
 import br.edu.ifpb.ecommercegenericbackend.models.DadosProdutoInserirDTO;
 import br.edu.ifpb.ecommercegenericbackend.models.Produto;
 import br.edu.ifpb.ecommercegenericbackend.models.ProdutoListagemDTO;
+import br.edu.ifpb.ecommercegenericbackend.service.ProdutoService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @RestController
