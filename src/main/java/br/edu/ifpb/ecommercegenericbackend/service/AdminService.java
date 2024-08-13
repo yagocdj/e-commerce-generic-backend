@@ -17,4 +17,8 @@ public class AdminService {
     public List<Admin> listar() {
         return this.adminRepository.findAll();
     }
+
+    public Admin inserir(Admin admin) {
+        return this.adminRepository.save(admin);
+    }
 }

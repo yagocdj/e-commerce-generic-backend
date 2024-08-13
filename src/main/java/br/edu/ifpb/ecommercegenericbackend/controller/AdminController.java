@@ -1,10 +1,10 @@
 package br.edu.ifpb.ecommercegenericbackend.controller;
 
 import br.edu.ifpb.ecommercegenericbackend.models.Admin;
+import br.edu.ifpb.ecommercegenericbackend.models.AdminInserirDTO;
 import br.edu.ifpb.ecommercegenericbackend.service.AdminService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,5 +21,15 @@ public class AdminController {
     @GetMapping
     public List<Admin> listar() {
         return this.adminService.listar();
+    }
+
+    @PostMapping
+    public Admin inserir(@RequestBody @Valid AdminInserirDTO admin) {
+        var adminASerInserido = new Admin();
+
+        adminASerInserido.setNome(admin.nome());
+        adminASerInserido.setSenha(admin.senha());
+
+        return this.adminService.inserir(adminASerInserido);
     }
 }
